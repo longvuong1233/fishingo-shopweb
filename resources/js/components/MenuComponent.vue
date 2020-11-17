@@ -1,12 +1,7 @@
 <template>
 <div class="text-left">
-    <div id="menu-doc" class="row">
-        <div class>
-            <sidebar-menu :menu="menu" />
-        </div>
-    </div>
     <div id="menu_ngang" class="ml-5">
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
             <span class="navbar-brand ">
                 <a href="/"><img class="rounded-circle" src="https://image.freepik.com/free-vector/baby-shark-cartoon-style_23-2148502728.jpg" alt="Logo" style="width:50px;" title="https://image.freepik.com/" />
                 </a>
@@ -47,6 +42,11 @@
             </ul>
         </nav>
     </div>
+    <div id="menu-doc" class="row mt-3">
+        <div class>
+            <sidebar-menu :menu="menu" />
+        </div>
+    </div>
 </div>
 </template>
 
@@ -79,7 +79,7 @@ export default {
                 },
                 {
                     // href: "/shr_nail",
-                    title: "Shrimp,  Nail",
+                    title: "Shrimp,  Snail",
                     icon: "fab fa-envira",
                     type: "shr_nail"
                 },

@@ -7,33 +7,19 @@
             <div class="row">
                 @if(isset($name))
                 @foreach ($list as $item)
-                <div class="col-sm-4">
-                    <div class="product-image-wrapper rounded-lg"
-                        style="height:380px; width:298px; box-sizing: border-box;">
+                <div class="col-md-4">
+                    <div class="product-image-wrapper rounded-lg ">
                         <div class="single-products">
                             <div class="productinfo text-center">
                                 <div class="img-product">
                                     <a @click="callAjax({{$item->id}})"><img src="../..{{$item->image}}" alt="img"
                                             class="rounded-circle transition-img"></a>
                                 </div>
-                                @if(isset($item->unit_price))
-                                <div class="">
-                                    <h2>{{$item->unit_price}}.000</h2>
-                                    <p class="text-body bg-info" style=""><b>{{$item->name}}</b></p>
-                                </div>
-                                <div id="">
-
-                                    <div class="button">
-
-                                        <a href="#" class="btn btn-success add-to-cart" @click='add({{$item->id}},1)'><i
-                                                class="fa fa-shopping-cart"></i>Add to cart</a>
-
-                                    </div>
-                                </div>
-                                @else
+                                @if(isset($item->name))
                                 <p>
                                     <h3>{{$item->name}}</h3>
                                 </p>
+
                                 @endif
 
                             </div>
@@ -49,9 +35,8 @@
         </div>
         <div v-else id="paginationProduct">
             <div class="row">
-                <div class="col-sm-4" v-for='(item,index) in list'>
-                    <div class="product-image-wrapper rounded-lg"
-                        style="height:380px; width:298px; box-sizing: border-box;">
+                <div class="col-md-4" v-for='(item,index) in list'>
+                    <div class="product-image-wrapper rounded-lg">
                         <div class="single-products">
                             <div class="productinfo text-center">
                                 <div class="img-product">
@@ -60,14 +45,14 @@
                                 </div>
                                 <div class="">
                                     <h2>@{{item['unit_price']}}.000</h2>
-                                    <p class="text-body bg-info" style=""><b>@{{item['name']}}</b></p>
+                                    <p class="text-body bg-info" style=""><b>@{{item['name']|displayName}}</b></p>
                                 </div>
                                 <div id="">
 
                                     <div class="button">
 
                                         <a href="#" class="btn btn-success add-to-cart" @click="add(item['id'],1)"><i
-                                                class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                class="fa fa-shopping-cart"></i>@{{item['unit_price']}},000₫</a>
 
                                     </div>
                                 </div>
@@ -128,16 +113,14 @@
         overflow-x: hidden;
     }
 
-    .single-products {
-        position: relative;
-    }
+
 
     .product-image-wrapper {
         border: 2px groove #c0c0c0;
-        overflow: hidden;
         margin-bottom: 30px;
         margin-top: 30px;
-        padding: 50px;
+        padding-top: 10px;
+        padding-bottom: 5px;
 
     }
 

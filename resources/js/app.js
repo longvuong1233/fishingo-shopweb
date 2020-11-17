@@ -8,9 +8,6 @@ require("./bootstrap");
 
 window.Vue = require("vue");
 
-
-
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -27,8 +24,8 @@ window.Vue = require("vue");
 import menuComponent from "./components/MenuComponent.vue";
 
 import itemComponent from "./components/showItem/itemComponent.vue";
-import deleteorderComponent from './components/order/deleteOrderComponent.vue'
-import paginationComponent from './components/pagination.vue'
+import deleteorderComponent from "./components/order/deleteOrderComponent.vue";
+import paginationComponent from "./components/pagination.vue";
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -37,41 +34,38 @@ import paginationComponent from './components/pagination.vue'
  */
 import VueEasySession from "vue-easysession";
 import { store } from "./components/cart/store";
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
 // Optionally install the BootstrapVue icon components plugin
 
-
 var options = {
     persist: false
-}
+};
 Vue.use(VueEasySession.install, options);
 
 const app = new Vue({
     el: "#app",
     data: {
         key: "1",
-        quantity: '1',
+        quantity: "1",
         reportOrder: false,
         list: [],
         listRoot: [],
         ajax: false,
         product: {},
         type: {
-            '1': 'cayts',
-            '2': 'fish',
-            '3': 'shr_nail',
-            '4': 'light',
-            '5': 'aquarium',
-            '6': 'tankfilter',
-            '7': 'food',
-            '8': 'accessories',
+            "1": "cayts",
+            "2": "fish",
+            "3": "shr_nail",
+            "4": "light",
+            "5": "aquarium",
+            "6": "tankfilter",
+            "7": "food",
+            "8": "accessories"
         },
         currentPage: 1,
         row: 1,
         perPage: 6
-
-
     },
     mounted() {
         // axios.get('/')
@@ -79,13 +73,20 @@ const app = new Vue({
         //         this.list = response.data;
         //     });
     },
+    filters: {
+        displayName(name) {
+            if (name.length <= 35) {
+                return name;
+            }
+            return name.substring(0, 32) + "...";
+        }
+    },
     methods: {
         add(id, quantity) {
             for (let i = 0; i < quantity; i++) {
-                this.$store.commit('addCart', id);
+                this.$store.commit("addCart", id);
                 this.$session.set(this.key, this.getCart);
             }
-
         },
         deleteSession() {
             this.$session.remove(this.key);
@@ -102,14 +103,14 @@ const app = new Vue({
             });
         },
         getRoute(id) {
-            return this.url = '/products/' + id;
+            return (this.url = "/products/" + id);
         },
         routeShowProduct(id) {
-            this.$store.commit('setShowProduct', true);
+            this.$store.commit("setShowProduct", true);
             this.ajax = false;
-            axios.get('/products/' + id).then(response => {
+            axios.get("/products/" + id).then(response => {
                 this.product = response.data;
-            })
+            });
         },
         onPageChange(page) {
             this.currentPage = page;
@@ -127,12 +128,9 @@ const app = new Vue({
         this.$session.start(1800000);
         if (this.$session.get(this.key)) {
             this.$session.get(this.key).forEach(element => {
-                this.$store.commit('addCart', element);
+                this.$store.commit("addCart", element);
             });
-
         }
-
-
     },
     watch: {
         getCart() {
@@ -150,7 +148,6 @@ const app = new Vue({
         listRoot() {
             this.row = Math.ceil(this.listRoot.length / this.perPage);
         }
-
     },
     store,
     components: {
@@ -160,6 +157,6 @@ const app = new Vue({
         paginationComponent
     },
     computed: {
-        ...mapGetters(['getCart', 'getProduct', 'getShowProduct'])
+        ...mapGetters(["getCart", "getProduct", "getShowProduct"])
     }
 });

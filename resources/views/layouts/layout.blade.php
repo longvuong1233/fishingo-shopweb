@@ -25,6 +25,7 @@ use App\Products;
 
 </head>
 
+
 <body>
     <div id="particles" style="position:fixed;left: 0px;top: 0px; z-index:-1; overflow-y:hidden">
         <link rel="stylesheet" href="/img/background2/style.css" />
@@ -45,7 +46,6 @@ use App\Products;
         <script src="/img/background2/particles.js"></script>
         <script src="/img/background2/app.js"></script>
     </div>
-
     <div id="app">
         <div class="" ref="app">
 

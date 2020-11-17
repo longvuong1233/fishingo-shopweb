@@ -1991,7 +1991,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         type: "cayts"
       }, {
         // href: "/shr_nail",
-        title: "Shrimp,  Nail",
+        title: "Shrimp,  Snail",
         icon: "fab fa-envira",
         type: "shr_nail"
       }, {
@@ -39882,14 +39882,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "text-left" }, [
-    _c("div", { staticClass: "row", attrs: { id: "menu-doc" } }, [
-      _c("div", {}, [_c("sidebar-menu", { attrs: { menu: _vm.menu } })], 1)
-    ]),
-    _vm._v(" "),
     _c("div", { staticClass: "ml-5", attrs: { id: "menu_ngang" } }, [
       _c(
         "nav",
-        { staticClass: "navbar navbar-expand-sm bg-dark navbar-dark" },
+        { staticClass: "navbar navbar-expand-sm bg-dark navbar-dark " },
         [
           _vm._m(0),
           _vm._v(" "),
@@ -39971,6 +39967,10 @@ var render = function() {
           )
         ]
       )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row mt-3", attrs: { id: "menu-doc" } }, [
+      _c("div", {}, [_c("sidebar-menu", { attrs: { menu: _vm.menu } })], 1)
     ])
   ])
 }
@@ -54736,21 +54736,21 @@ var app = new Vue({
   el: "#app",
   data: {
     key: "1",
-    quantity: '1',
+    quantity: "1",
     reportOrder: false,
     list: [],
     listRoot: [],
     ajax: false,
     product: {},
     type: {
-      '1': 'cayts',
-      '2': 'fish',
-      '3': 'shr_nail',
-      '4': 'light',
-      '5': 'aquarium',
-      '6': 'tankfilter',
-      '7': 'food',
-      '8': 'accessories'
+      "1": "cayts",
+      "2": "fish",
+      "3": "shr_nail",
+      "4": "light",
+      "5": "aquarium",
+      "6": "tankfilter",
+      "7": "food",
+      "8": "accessories"
     },
     currentPage: 1,
     row: 1,
@@ -54761,10 +54761,19 @@ var app = new Vue({
     //         this.list = response.data;
     //     });
   },
+  filters: {
+    displayName: function displayName(name) {
+      if (name.length <= 35) {
+        return name;
+      }
+
+      return name.substring(0, 32) + "...";
+    }
+  },
   methods: {
     add: function add(id, quantity) {
       for (var i = 0; i < quantity; i++) {
-        this.$store.commit('addCart', id);
+        this.$store.commit("addCart", id);
         this.$session.set(this.key, this.getCart);
       }
     },
@@ -54786,14 +54795,14 @@ var app = new Vue({
       });
     },
     getRoute: function getRoute(id) {
-      return this.url = '/products/' + id;
+      return this.url = "/products/" + id;
     },
     routeShowProduct: function routeShowProduct(id) {
       var _this2 = this;
 
-      this.$store.commit('setShowProduct', true);
+      this.$store.commit("setShowProduct", true);
       this.ajax = false;
-      axios.get('/products/' + id).then(function (response) {
+      axios.get("/products/" + id).then(function (response) {
         _this2.product = response.data;
       });
     },
@@ -54817,7 +54826,7 @@ var app = new Vue({
 
     if (this.$session.get(this.key)) {
       this.$session.get(this.key).forEach(function (element) {
-        _this3.$store.commit('addCart', element);
+        _this3.$store.commit("addCart", element);
       });
     }
   },
@@ -54845,7 +54854,7 @@ var app = new Vue({
     deleteorderComponent: _components_order_deleteOrderComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     paginationComponent: _components_pagination_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_6__["mapGetters"])(['getCart', 'getProduct', 'getShowProduct']))
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_6__["mapGetters"])(["getCart", "getProduct", "getShowProduct"]))
 });
 
 /***/ }),
