@@ -61,7 +61,9 @@ use App\Products;
                 :sesstion='deleteSession'>
                 <p slot='csrf'>@csrf</p>
             </item-component>
+
         </div>
+
 
         <div class="ml-5">
             <div class="py-4 container ">

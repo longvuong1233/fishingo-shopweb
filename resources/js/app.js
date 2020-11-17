@@ -83,6 +83,7 @@ const app = new Vue({
     },
     methods: {
         add(id, quantity) {
+
             for (let i = 0; i < quantity; i++) {
                 this.$store.commit("addCart", id);
                 this.$session.set(this.key, this.getCart);

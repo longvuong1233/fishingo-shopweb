@@ -3304,6 +3304,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3313,7 +3353,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       products: [],
       customerForm: false,
-      itemForm: false
+      itemForm: false,
+      notifycation: false,
+      setTime: null
     };
   },
   props: ["list", "route", "sesstion"],
@@ -3332,6 +3374,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     getCart: function getCart() {
       var _this2 = this;
 
+      clearTimeout(this.setTime);
       this.products = [];
       this.list.forEach(function (element) {
         if (_this2.getCart.indexOf(element.id) != -1) {
@@ -3340,6 +3383,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           _this2.products.push(element);
         }
       });
+      this.notifycation = true;
+      this.setTime = setTimeout(function () {
+        _this2.notifycation = false;
+      }, 2000);
     }
   },
   methods: {
@@ -7983,7 +8030,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n*[data-v-5a926996],\r\n*[data-v-5a926996]:before,\r\n*[data-v-5a926996]:after {\r\n    box-sizing: border-box;\n}\nbody[data-v-5a926996] {\r\n    font: 14px/22px \"Lato\", Arial, sans-serif;\n}\n.lighter-text[data-v-5a926996] {\r\n    color: #abb0be;\n}\n.main-color-text[data-v-5a926996] {\r\n    color: #6394f8;\n}\nnav[data-v-5a926996] {\r\n    padding: 20px 0 40px 0;\r\n    background: #f8f8f8;\r\n    font-size: 16px;\n}\nnav .navbar-left[data-v-5a926996] {\r\n    float: left;\n}\nnav .navbar-right[data-v-5a926996] {\r\n    float: right;\n}\nnav ul li[data-v-5a926996] {\r\n    display: inline;\r\n    padding-left: 20px;\n}\nnav ul li a[data-v-5a926996] {\r\n    color: #777777;\r\n    text-decoration: none;\n}\nnav ul li a[data-v-5a926996]:hover {\r\n    color: black;\n}\n.container[data-v-5a926996] {\r\n    margin: auto;\r\n    width: 80%;\n}\n.badge[data-v-5a926996] {\r\n    background-color: #6394f8;\r\n    border-radius: 10px;\r\n    color: white;\r\n    display: inline-block;\r\n    font-size: 12px;\r\n    line-height: 1;\r\n    padding: 3px 7px;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    white-space: nowrap;\n}\n.shopping-cart[data-v-5a926996] {\r\n    margin: 20px 0;\r\n    float: right;\r\n    background: white;\r\n    width: 320px;\r\n    position: relative;\r\n    border-radius: 3px;\r\n    display: none;\r\n    padding: 20px;\n}\n.shopping-cart .shopping-cart-header[data-v-5a926996] {\r\n    border-bottom: 1px solid #e8e8e8;\r\n    padding-bottom: 15px;\n}\n.shopping-cart .shopping-cart-header .shopping-cart-total[data-v-5a926996] {\r\n    float: right;\n}\n.shopping-cart .shopping-cart-items[data-v-5a926996] {\r\n    padding-top: 20px;\n}\n.shopping-cart .shopping-cart-items li[data-v-5a926996] {\r\n    margin-bottom: 18px;\n}\n.shopping-cart .shopping-cart-items img[data-v-5a926996] {\r\n    float: left;\r\n    margin-right: 12px;\n}\n.shopping-cart .shopping-cart-items .item-name[data-v-5a926996] {\r\n    display: block;\r\n    padding-top: 10px;\r\n    font-size: 16px;\n}\n.shopping-cart .shopping-cart-items .item-price[data-v-5a926996] {\r\n    color: #6394f8;\r\n    margin-right: 8px;\n}\n.shopping-cart .shopping-cart-items .item-quantity[data-v-5a926996] {\r\n    color: #abb0be;\n}\n.shopping-cart[data-v-5a926996]:after {\r\n    bottom: 100%;\r\n    left: 89%;\r\n    border: solid transparent;\r\n    content: \" \";\r\n    height: 0;\r\n    width: 0;\r\n    position: absolute;\r\n    pointer-events: none;\r\n    border-bottom-color: white;\r\n    border-width: 8px;\r\n    margin-left: -8px;\n}\n.cart-icon[data-v-5a926996] {\r\n    color: #515783;\r\n    font-size: 24px;\r\n    margin-right: 7px;\r\n    float: left;\n}\n.button[data-v-5a926996] {\r\n    background: #0099aa;\r\n    color: white;\r\n    text-align: center;\r\n    padding: 12px;\r\n    text-decoration: none;\r\n    display: block;\r\n    border-radius: 3px;\r\n    font-size: 16px;\r\n    margin: 25px 0 15px 0;\n}\n.button[data-v-5a926996]:hover {\r\n    background: #729ef9;\n}\n.clearfix[data-v-5a926996]:after {\r\n    content: \"\";\r\n    display: table;\r\n    clear: both;\n}\r\n", ""]);
+exports.push([module.i, "\n*[data-v-5a926996],\r\n*[data-v-5a926996]:before,\r\n*[data-v-5a926996]:after {\r\n  box-sizing: border-box;\n}\nbody[data-v-5a926996] {\r\n  font: 14px/22px \"Lato\", Arial, sans-serif;\n}\n.lighter-text[data-v-5a926996] {\r\n  color: #abb0be;\n}\n.main-color-text[data-v-5a926996] {\r\n  color: #6394f8;\n}\nnav[data-v-5a926996] {\r\n  padding: 20px 0 40px 0;\r\n  background: #f8f8f8;\r\n  font-size: 16px;\n}\nnav .navbar-left[data-v-5a926996] {\r\n  float: left;\n}\nnav .navbar-right[data-v-5a926996] {\r\n  float: right;\n}\nnav ul li[data-v-5a926996] {\r\n  display: inline;\r\n  padding-left: 20px;\n}\nnav ul li a[data-v-5a926996] {\r\n  color: #777777;\r\n  text-decoration: none;\n}\nnav ul li a[data-v-5a926996]:hover {\r\n  color: black;\n}\n.container[data-v-5a926996] {\r\n  margin: auto;\r\n  width: 80%;\n}\n.badge[data-v-5a926996] {\r\n  background-color: #6394f8;\r\n  border-radius: 10px;\r\n  color: white;\r\n  display: inline-block;\r\n  font-size: 12px;\r\n  line-height: 1;\r\n  padding: 3px 7px;\r\n  text-align: center;\r\n  vertical-align: middle;\r\n  white-space: nowrap;\n}\n.shopping-cart[data-v-5a926996] {\r\n  margin: 20px 0;\r\n  float: right;\r\n  background: white;\r\n  width: 320px;\r\n  position: relative;\r\n  border-radius: 3px;\r\n  display: none;\r\n  padding: 20px;\n}\n.shopping-cart .shopping-cart-header[data-v-5a926996] {\r\n  border-bottom: 1px solid #e8e8e8;\r\n  padding-bottom: 15px;\n}\n.shopping-cart .shopping-cart-header .shopping-cart-total[data-v-5a926996] {\r\n  float: right;\n}\n.shopping-cart .shopping-cart-items[data-v-5a926996] {\r\n  padding-top: 20px;\n}\n.shopping-cart .shopping-cart-items li[data-v-5a926996] {\r\n  margin-bottom: 18px;\n}\n.shopping-cart .shopping-cart-items img[data-v-5a926996] {\r\n  float: left;\r\n  margin-right: 12px;\n}\n.shopping-cart .shopping-cart-items .item-name[data-v-5a926996] {\r\n  display: block;\r\n  padding-top: 10px;\r\n  font-size: 16px;\n}\n.shopping-cart .shopping-cart-items .item-price[data-v-5a926996] {\r\n  color: #6394f8;\r\n  margin-right: 8px;\n}\n.shopping-cart .shopping-cart-items .item-quantity[data-v-5a926996] {\r\n  color: #abb0be;\n}\n.shopping-cart[data-v-5a926996]:after {\r\n  bottom: 100%;\r\n  left: 89%;\r\n  border: solid transparent;\r\n  content: \" \";\r\n  height: 0;\r\n  width: 0;\r\n  position: absolute;\r\n  pointer-events: none;\r\n  border-bottom-color: white;\r\n  border-width: 8px;\r\n  margin-left: -8px;\n}\n.cart-icon[data-v-5a926996] {\r\n  color: #515783;\r\n  font-size: 24px;\r\n  margin-right: 7px;\r\n  float: left;\n}\n.button[data-v-5a926996] {\r\n  background: #0099aa;\r\n  color: white;\r\n  text-align: center;\r\n  padding: 12px;\r\n  text-decoration: none;\r\n  display: block;\r\n  border-radius: 3px;\r\n  font-size: 16px;\r\n  margin: 25px 0 15px 0;\n}\n.button[data-v-5a926996]:hover {\r\n  background: #729ef9;\n}\n.clearfix[data-v-5a926996]:after {\r\n  content: \"\";\r\n  display: table;\r\n  clear: both;\n}\r\n", ""]);
 
 // exports
 
@@ -41200,8 +41247,27 @@ var render = function() {
           [
             _c(
               "span",
-              { staticStyle: { "font-family": "arial,helvetica,sans-serif" } },
+              {
+                staticStyle: { "font-family": "arial, helvetica, sans-serif" }
+              },
               [
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.notifycation == true,
+                        expression: "notifycation == true"
+                      }
+                    ],
+                    staticClass: "alert alert-success",
+                    attrs: { role: "alert" }
+                  },
+                  [_vm._v("\n            Add successful\n          ")]
+                ),
+                _vm._v(" "),
                 _c("div", [
                   _c(
                     "div",
@@ -41214,9 +41280,9 @@ var render = function() {
                         _vm._v(" "),
                         _c("span", { staticClass: "badge" }, [
                           _vm._v(
-                            "\r\n                                    " +
+                            "\n                  " +
                               _vm._s(_vm.products.length) +
-                              "\r\n                                "
+                              "\n                "
                           )
                         ]),
                         _vm._v(" "),
@@ -41239,10 +41305,10 @@ var render = function() {
                           : _vm._e()
                       ]),
                       _vm._v(" "),
-                      _vm._l(_vm.products, function(item) {
+                      _vm._l(_vm.products, function(item, index) {
                         return _c(
                           "ul",
-                          { staticClass: "shopping-cart-items" },
+                          { key: index, staticClass: "shopping-cart-items" },
                           [
                             _c("li", { staticClass: "clearfix" }, [
                               _c("img", {
@@ -41253,28 +41319,28 @@ var render = function() {
                               _vm._v(" "),
                               _c("span", { staticClass: "item-name" }, [
                                 _vm._v(
-                                  "\r\n                                        " +
+                                  "\n                    " +
                                     _vm._s(item.name) +
-                                    "\r\n                                    "
+                                    "\n                  "
                                 )
                               ]),
                               _vm._v(" "),
                               _c("span", { staticClass: "item-price" }, [
                                 _vm._v(
-                                  "\r\n                                        " +
+                                  "\n                    " +
                                     _vm._s(
                                       item.unit_price *
                                         _vm.quantityProduct(item.id)
                                     ) +
-                                    ",000\r\n                                    "
+                                    ",000\n                  "
                                 )
                               ]),
                               _vm._v(" "),
                               _c("span", { staticClass: "item-quantity" }, [
                                 _vm._v(
-                                  "\r\n                                        Quantity:\r\n                                        " +
+                                  "\n                    Quantity:\n                    " +
                                     _vm._s(_vm.quantityProduct(item.id)) +
-                                    "\r\n                                    "
+                                    "\n                  "
                                 )
                               ])
                             ])
@@ -41348,7 +41414,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("×")]
+              [_vm._v("\n        ×\n      ")]
             ),
             _vm._v(" "),
             _c("form-component", {
@@ -41366,7 +41432,7 @@ var render = function() {
                 attrs: { type: "button" },
                 on: { click: _vm.openCustomer }
               },
-              [_vm._v("Next")]
+              [_vm._v("\n        Next\n      ")]
             )
           ],
           1
@@ -41406,7 +41472,7 @@ var render = function() {
                         attrs: { type: "button" },
                         on: { click: _vm.closeCustomer }
                       },
-                      [_vm._v("×")]
+                      [_vm._v("\n            ×\n          ")]
                     ),
                     _vm._v(" "),
                     _c("customer-component", {
